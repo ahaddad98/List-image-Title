@@ -33,14 +33,15 @@ const CardImage = styled.img`
 `;
 
 const CardTitle = styled.h2`
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
-  margin-top: 16px;
+  margin-top: 8px;
   color: #333;
-  white-space: nowrap;
-  overflow: hidden;
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
   text-overflow: ellipsis;
   max-width: 200px;
+  max-height: 50;
 `;
 
 const Item = ({ data }: Props) => {
