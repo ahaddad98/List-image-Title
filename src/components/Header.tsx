@@ -1,12 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-interface HeaderProps {
-  title: string;
-  carousel?: boolean;
-  infiniteScroll?: boolean;
-  pagination?: boolean;
-}
+import { useAppContext } from "../provider/appContext";
 
 const HeaderContainer = styled.div`
   width: 100%;
@@ -16,9 +10,10 @@ const HeaderContainer = styled.div`
   align-items: center;
   background-color: #fff;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   position: sticky;
   top: 0;
+  height: 60;
 `;
 
 const Title = styled.h1`
@@ -51,37 +46,28 @@ const OptionButton = styled.button<OptionButtonProps>`
   }
 `;
 
-const Header: React.FC<HeaderProps> = ({
-  title,
-  carousel,
-  infiniteScroll,
-  pagination,
-}) => {
+const Header = () => {
+  let { carousel, infiniteScroll, setInfiniteScroll, setCarrousel }: any = useAppContext()
   return (
     <HeaderContainer>
-      <Title>{title}</Title>
+      <Title>List Images</Title>
       <OptionContainer>
-        {carousel && (
-          <OptionButton active={true} onClick={() => console.log("Carousel")}>
-            Carousel
-          </OptionButton>
-        )}
-        {infiniteScroll && (
-          <OptionButton
-            active={false}
-            onClick={() => console.log("Infinite Scroll")}
-          >
-            Infinite Scroll
-          </OptionButton>
-        )}
-        {pagination && (
-          <OptionButton
-            active={false}
-            onClick={() => console.log("Pagination")}
-          >
-            Pagination
-          </OptionButton>
-        )}
+        <OptionButton active={carousel} onClick={() => {
+          setCarrousel(true)
+          setInfiniteScroll(false)
+        }}>
+          Carousel
+        </OptionButton>
+        <OptionButton
+          active={infiniteScroll}
+          onClick={() => {
+            setInfiniteScroll(true)
+            setCarrousel(false)
+
+          }}
+        >
+          Infinite Scroll
+        </OptionButton>
       </OptionContainer>
     </HeaderContainer>
   );

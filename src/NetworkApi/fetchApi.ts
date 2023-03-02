@@ -1,6 +1,6 @@
-export const fetchData = async () => {
+export const fetchData = async (page: number) => {
     try{
-        const response = await fetch('https://jsonplaceholder.typicode.com/photos?_start=0&_limit=10');
+        const response = await fetch(`https://jsonplaceholder.typicode.com/photos?${page * 10}&_limit=20`);
         const data =  response.json();
         return data
     }

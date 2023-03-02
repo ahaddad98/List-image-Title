@@ -12,7 +12,7 @@ const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  /* padding: 16px; */
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -40,7 +40,7 @@ const CardTitle = styled.h2`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 300px;
+  max-width: 200px;
 `;
 
 const Item = ({ data }: Props) => {
