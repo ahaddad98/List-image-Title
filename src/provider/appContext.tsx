@@ -15,14 +15,13 @@ export function useAppContext() {
 }
 
 export function AppProvider({ children }: any) {
-    const [infiniteScroll, setInfiniteScroll] = useState(true)
+    const [showPhotos, setShowPhotos] = useState(true)
     const [carousel, setCarrousel] = useState(false)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
     const [page, setPage] = useState(1);
     const [data, setData] = useState<IData[]>([])
     const fetchItems = async () => {
-        console.log('im here');
         setLoading(true)
         const res = await fetchData(page)
         if (!res)
@@ -41,7 +40,7 @@ export function AppProvider({ children }: any) {
     return (
         <>
             {
-                <MyContext.Provider value={{ loading, error, data, infiniteScroll, setInfiniteScroll, carousel, setCarrousel, fetchItems }}>
+                <MyContext.Provider value={{ loading, error, data, showPhotos, setShowPhotos, carousel, setCarrousel, fetchItems }}>
                     {children}
                 </MyContext.Provider>
             }

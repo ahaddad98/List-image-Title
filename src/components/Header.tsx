@@ -47,26 +47,26 @@ const OptionButton = styled.button<OptionButtonProps>`
 `;
 
 const Header = () => {
-  let { carousel, infiniteScroll, setInfiniteScroll, setCarrousel }: any = useAppContext()
+  let { carousel, showPhotos, setShowPhotos, setCarrousel }: any = useAppContext()
   return (
     <HeaderContainer>
       <Title>List Images</Title>
       <OptionContainer>
         <OptionButton active={carousel} onClick={() => {
           setCarrousel(true)
-          setInfiniteScroll(false)
+          setShowPhotos(false)
         }}>
           Carousel
         </OptionButton>
         <OptionButton
-          active={infiniteScroll}
+          active={showPhotos}
           onClick={() => {
-            setInfiniteScroll(true)
+            setShowPhotos(true)
             setCarrousel(false)
 
           }}
         >
-          Infinite Scroll
+          show Photos
         </OptionButton>
       </OptionContainer>
     </HeaderContainer>
